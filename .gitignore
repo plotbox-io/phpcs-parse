@@ -1,0 +1,12 @@
+ # PhpStorm
+\.idea/
+
+# Composer
+vendor/
+
+# Docker
+docker-compose.override.yml
+
+# PHPUnit
+.phpunit.result.cache
+debug/
