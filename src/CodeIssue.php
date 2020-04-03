@@ -46,7 +46,7 @@ class CodeIssue
         $this->column = $column;
         $this->source = $source;
         $this->message = $message;
-        $this->type = $type;
+        $this->type = strtolower($type);
         $this->severity = $severity;
         $this->fixable = $fixable;
     }
@@ -100,6 +100,8 @@ class CodeIssue
     }
 
     /**
+     * 'error' or 'warning'
+     *
      * @return string
      */
     public function getType()
