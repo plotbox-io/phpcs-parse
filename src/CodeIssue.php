@@ -60,6 +60,14 @@ class CodeIssue
     }
 
     /**
+     * @param $filePath
+     */
+    public function changeFilePath($filePath)
+    {
+        $this->file = $filePath;
+    }
+
+    /**
      * @return int
      */
     public function getLine()

@@ -25,7 +25,7 @@ $json = $converter->convert($csvIssuesString, 'csv', 'json');
 |------|------------|------------|
 | csv  | YES        | NO         |
 | xml  | NO         | YES        |
-| json | NO         | YES        |
+| json | YES        | YES        |
 
 ## Contributing
 

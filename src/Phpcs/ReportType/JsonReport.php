@@ -2,6 +2,8 @@
 
 namespace PlotBox\PhpcsParse\Phpcs\ReportType;
 
+use PlotBox\PhpcsParse\CodeIssue;
+
 class JsonReport implements Report
 {
     /** @var ReportAggregator */
@@ -58,6 +60,24 @@ class JsonReport implements Report
      */
     public function fromString($content)
     {
-        throw new NotSupportedException();
+        $jsonData = json_decode($content);
+
+        $parsedResults = [];
+        foreach($jsonData->files as $fileName => $details){
+            foreach($details->messages as $issue){
+                $parsedResults[] = new CodeIssue(
+                    $fileName,
+                    $issue->line,
+                    $issue->column,
+                    $issue->source,
+                    $issue->message,
+                    $issue->type,
+                    $issue->severity,
+                    $issue->fixable
+                );
+            }
+        }
+        
+        return $parsedResults;
     }
 }
