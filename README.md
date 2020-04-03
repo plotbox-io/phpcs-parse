@@ -20,12 +20,17 @@ $json = $converter->convert($csvIssuesString, 'csv', 'json');
 ```
 
 ### Supported Conversions
+ 
+| Type  | Read Input | Gen Output |
+|-------|------------|------------|
+| csv   | YES        | NO         |
+| xml   | NO         | YES        |
+| json  | YES        | YES        |
+| human | NO         | YES        |
 
-| Type | Read Input | Gen Output |
-|------|------------|------------|
-| csv  | YES        | NO         |
-| xml  | NO         | YES        |
-| json | YES        | YES        |
+Note: Human format is a special report format, not actually used by code sniffer (although
+somewhat similar to the default mode) that can be used to make output for a CI server
+or developer tool (supports output only)
 
 ## Contributing
 

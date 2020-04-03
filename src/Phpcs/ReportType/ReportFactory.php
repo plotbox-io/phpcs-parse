@@ -27,6 +27,8 @@ class ReportFactory
                 return new XmlReport($this->reportAggregator);
             case 'csv':
                 return new CsvReport();
+            case 'human':
+                return new HumanReport();
             default:
                 throw new RuntimeException("Unsupported report type '$type'");
         }
