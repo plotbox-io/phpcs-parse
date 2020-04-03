@@ -3,6 +3,7 @@
 namespace PlotBox\PhpcsParse\Phpcs\ReportType;
 
 use PlotBox\PhpcsParse\CodeIssue;
+use RuntimeException;
 
 class CsvReport implements Report
 {
@@ -13,7 +14,7 @@ class CsvReport implements Report
     {
         $foundIssues = explode("\n", $content);
         if (preg_match('/^ERROR:/', $foundIssues[0])) {
-            throw new \RuntimeException($foundIssues[0]);
+            throw new RuntimeException($foundIssues[0]);
         }
 
         $parsedIssues = [];
